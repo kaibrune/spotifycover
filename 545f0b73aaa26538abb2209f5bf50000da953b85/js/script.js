@@ -1,4 +1,13 @@
 $(function () {
+
+    ('#month').keypress(function (e) {
+        var key = e.which;
+        if (key == 13) {
+            $('#btnSave').click();
+            return false;
+        }
+    });
+
     $('#widget').hide();
     $("#btnSave").click(function () {
         $("#img-out").html();
