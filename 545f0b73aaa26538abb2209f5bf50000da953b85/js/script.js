@@ -10,6 +10,7 @@ $(function () {
     $("#download").hide()
     $('#widget').hide();
     $("#btnSave").click(function () {
+        $("#download").hide()
         $("#img-out").html();
         var month = $('#month').val();
         $('#month_text').text(month);
