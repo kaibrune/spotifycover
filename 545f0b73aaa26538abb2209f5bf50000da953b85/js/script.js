@@ -7,7 +7,7 @@ $(function () {
             return false;
         }
     });
-
+    $("#download").hide()
     $('#widget').hide();
     $("#btnSave").click(function () {
         $("#img-out").html();
@@ -67,7 +67,7 @@ $(function () {
             month = 'December'
         };
 
-        console.log(month);
+
 
         toDataURL(
             '//source.unsplash.com/500x500/?' + month,
@@ -81,10 +81,16 @@ $(function () {
                 onrendered: function (canvas) {
                     theCanvas = canvas;
                     $("#img-out").html(canvas);
-                    var a = document.createElement('a');
+                    $("#download").show()
+                    var a = document.getElementById("download");
                     a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-                    a.download = month+'.jpg';
-                    a.click();
+                    if (month == '') {
+                        month = 'unkown'
+                    };
+                    if (month == 'Spring') {
+                        month = 'märz'
+                    };
+                    a.download = month + '.jpg';
                 }
             });
             $('#widget').show();
