@@ -88,7 +88,7 @@ $(function () {
 
         setTimeout(() => {
             $('#widget').hide();
-            $('#btnSave').text('Save picture');
+            $('#btnSave').text('Generate cover');
         }, 3600);
 
     });
