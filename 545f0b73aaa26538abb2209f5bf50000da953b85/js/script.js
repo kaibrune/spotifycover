@@ -81,6 +81,9 @@ $(function () {
                 onrendered: function (canvas) {
                     theCanvas = canvas;
                     $("#img-out").html(canvas);
+
+                    img = canvas.toDataURL("image/jpeg");
+                    download(img, "modified.jpg", "image/jpeg");
                 }
             });
             $('#widget').show();
