@@ -81,11 +81,9 @@ $(function () {
                 onrendered: function (canvas) {
                     theCanvas = canvas;
                     $("#img-out").html(canvas);
-                    
                     var a = document.createElement('a');
-                    // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
                     a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
-                    a.download = 'somefilename.jpg';
+                    a.download = month+'.jpg';
                     a.click();
                 }
             });
