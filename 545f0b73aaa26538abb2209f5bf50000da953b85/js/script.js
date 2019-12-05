@@ -1,6 +1,6 @@
 $(function () {
 
-    ('#month').keypress(function (e) {
+    $('#month').keypress(function (e) {
         var key = e.which;
         if (key == 13) {
             $('#btnSave').click();
