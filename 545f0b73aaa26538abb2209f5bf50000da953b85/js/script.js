@@ -81,58 +81,18 @@ $(function () {
                 onrendered: function (canvas) {
                     theCanvas = canvas;
                     $("#img-out").html(canvas);
-
-                    img = canvas.toDataURL("image/jpeg");
-                    download(img, "modified.jpg", "image/jpeg");
+                    
+                    var a = document.createElement('a');
+                    // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+                    a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+                    a.download = 'somefilename.jpg';
+                    a.click();
                 }
             });
             $('#widget').show();
 
         }, 3500);
-        function download(strData, strFileName, strMimeType) {
-            var D = document,
-                A = arguments,
-                a = D.createElement("a"),
-                d = A[0],
-                n = A[1],
-                t = A[2] || "text/plain";
-        
-            //build download link:
-            a.href = "data:" + strMimeType + "," + escape(strData);
-        
-        
-            if (window.MSBlobBuilder) {
-                var bb = new MSBlobBuilder();
-                bb.append(strData);
-                return navigator.msSaveBlob(bb, strFileName);
-            } /* end if(window.MSBlobBuilder) */
-        
-        
-        
-            if ('download' in a) {
-                a.setAttribute("download", n);
-                a.innerHTML = "downloading...";
-                D.body.appendChild(a);
-                setTimeout(function() {
-                    var e = D.createEvent("MouseEvents");
-                    e.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    a.dispatchEvent(e);
-                    D.body.removeChild(a);
-                }, 66);
-                return true;
-            } /* end if('download' in a) */
-            ; //end if a[download]?
-        
-            //do iframe dataURL download:
-            var f = D.createElement("iframe");
-            D.body.appendChild(f);
-            f.src = "data:" + (A[2] ? A[2] : "application/octet-stream") + (window.btoa ? ";base64" : "") + "," + (window.btoa ? window.btoa : escape)(strData);
-            setTimeout(function() {
-                D.body.removeChild(f);
-            }, 333);
-            return true;
-        } /* end download() */
-        
+
         setTimeout(() => {
             $('#widget').hide();
             $('#btnSave').text('Generate cover');
