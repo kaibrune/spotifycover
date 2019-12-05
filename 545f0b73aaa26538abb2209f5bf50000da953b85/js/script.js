@@ -77,6 +77,7 @@ $(function () {
         )
         setTimeout(() => {
             html2canvas($("#widget"), {
+                scale: 2,
                 onrendered: function (canvas) {
                     theCanvas = canvas;
                     $("#img-out").html(canvas);
