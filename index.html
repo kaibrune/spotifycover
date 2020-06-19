@@ -18,7 +18,10 @@
     <h2 style="color:green">
       Spotify Cover Generator
     </h2>
-    <input list="months" id="month" type="text" placeholder="Choose month" />
+
+    <input list="months" class="input" id="text" type="search" placeholder="Choose text" />
+    <input list="" id="picture" class="input" type="search" placeholder="Choose picture" />
+
     <datalist id="months">
       <option value="Januar">
       <option value="Februar">
@@ -33,11 +36,14 @@
       <option value="November">
       <option value="Dezember">
     </datalist>
+
+
+    
     <button type="submit" id="btnSave">Generate cover</button>
     <a id="download"><button class="outline">Download cover</button></a>
     <div class="bg" id="widget">
       <div class="cover"></div>
-      <span id="month_text"></span>
+      <span id="text"></span>
     </div>
 
     <div id="img-out"></div>
