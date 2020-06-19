@@ -9,10 +9,10 @@ $(function () {
         if (key == 13) {
 
 
-            const element = document.querySelector('#text');
-            element.classList.add('animate__animated', 'animate__fadeOutDown');
+            const element1 = document.querySelector('#text');
+            element1.classList.add('animate__animated', 'animate__fadeOutDown');
 
-            element.addEventListener('animationend', () => {
+            element1.addEventListener('animationend', () => {
                 $('#text').hide();
                 $('#picture').show();
                 $('#picture').addClass('animate__animated animate__fadeInDown');
@@ -27,10 +27,10 @@ $(function () {
         var key = e.which;
         if (key == 13) {
 
-            const element = document.querySelector('#picture');
-            element.classList.add('animate__animated', 'animate__fadeOutDown');
+            const element2 = document.querySelector('#picture');
+            element2.classList.add('animate__animated', 'animate__fadeOutDown');
 
-            element.addEventListener('animationend', () => {
+            element2.addEventListener('animationend', () => {
                 $('#picture').hide();
                 $('#btnSave').show();
                 $('#btnSave').addClass('animate__animated animate__fadeInDown');
@@ -108,7 +108,7 @@ $(function () {
 
         }, 3500);
 
-        /*         setTimeout(() => {
+/*                 setTimeout(() => {
                     $('#picture').blur();
                     restart = true;
 
@@ -117,8 +117,15 @@ $(function () {
                             restart = false;
                             $('#widget_con').removeClass('animate__animated animate__fadeInDown');
                             $('#btnSave').removeClass('animate__animated animate__fadeOutDown');
-                            const element = document.querySelector('#widget_con');
-                            element.classList.add('animate__animated', 'animate__fadeOutDown');
+                            const element3 = document.querySelector('#widget_con');
+                            element3.classList.add('animate__animated', 'animate__fadeOutDown');
+                
+                            element3.addEventListener('animationend', () => {
+                                $('#widget_con').hide();
+                                $('#btnSave').show();
+                                $('#btnSave').addClass('animate__animated animate__fadeInDown');
+                
+                            });
                 
 
                 
@@ -127,8 +134,8 @@ $(function () {
                             return false;
                         }
                     });
-                }, 3600);
-         */
+                }, 3600); */
+        
 
     });
 });
