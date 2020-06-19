@@ -18,6 +18,9 @@ $(function () {
         $("#img-out").html();
         var text = $('#text').val();
         var picture = $('#picture').val();
+        if(text == ''){
+            text = picture;
+        }
         $('#month').text(text);
         $('#btnSave').html('<div class="loader">Loading<span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>');
 
