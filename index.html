@@ -9,44 +9,38 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="js/jquery.min.js"></script>
   <script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/wingcss" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 </head>
 
 <body>
 
+  <h2>
+    Spotify Cover Generator
+  </h2>
   <div class="container">
-    <h2 style="color:green">
-      Spotify Cover Generator
-    </h2>
-
-    <input list="months" class="input" id="text" type="search" placeholder="Choose text to display" />
-    <input list="" id="picture" class="input" type="search" placeholder="Searchterm for background picture; leave blank if it's same as the text" />
-
-    <datalist id="months">
-      <option value="Januar">
-      <option value="Februar">
-      <option value="März">
-      <option value="April">
-      <option value="Mai">
-      <option value="Juni">
-      <option value="Juli">
-      <option value="August">
-      <option value="September">
-      <option value="Oktober">
-      <option value="November">
-      <option value="Dezember">
-    </datalist>
 
 
-    
-    <button type="submit" id="btnSave">Generate cover</button>
-    <a id="download"><button class="outline">Download cover</button></a>
-    <div class="bg" id="widget">
-      <div class="cover"></div>
-      <span id="month"></span>
+
+    <div class="form__group">
+      <input class="form__input" id="text" type="search" placeholder="Choose text to display" />
+      <input class="form__input" id="picture" type="search"
+        placeholder="Searchterm for background picture; leave blank if it's same as the text" />
+      <div class="form__input" id="btnSave"></div>
     </div>
 
-    <div id="img-out"></div>
+
+
+    <a id="download">
+      <div id="widget_con">
+        <div class="bg" id="widget">
+          <div class="cover"></div>
+          <span id="month"></span>
+        </div>
+      </div>
+
+      <div id="img-out"></div>
+    </a>
+
   </div>
 
   <script src="js/script.js"></script>
