@@ -18,7 +18,7 @@ $(function () {
         $("#img-out").html();
         var text = $('#text').val();
         var picture = $('#picture').val();
-        $('#text').text(text);
+        $('#month').text(text);
         $('#btnSave').html('<div class="loader">Loading<span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>');
 
         function toDataURL(src, callback, outputFormat) {
