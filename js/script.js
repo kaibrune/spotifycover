@@ -61,7 +61,7 @@ $(function () {
         }
 
         $('#month').text(text);
-        $('#btnSave').html('<div class="loader">Loading<span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>');
+        $('#btnSave').html('<div class="loader">Generating your awesome playlist cover<span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>');
 
         function toDataURL(src, callback, outputFormat) {
             var img = new Image();
