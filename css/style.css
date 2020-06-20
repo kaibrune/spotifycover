@@ -109,8 +109,9 @@ a {
   text-decoration: none;
 }
 
-
-
+textarea:focus, input:focus{
+  outline: none;
+}
 
 .bg {
   width: 500px;
