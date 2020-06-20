@@ -142,6 +142,11 @@ $(function () {
                     return false;
                 }
             });
+
+
+            $(document).keyup(function(e) {
+                if (e.keyCode === 27 && restart == true){location.reload();}
+              });
         }, 3600);
 
 
