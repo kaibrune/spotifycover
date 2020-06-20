@@ -10,6 +10,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
@@ -22,9 +23,16 @@
 
 
     <div class="form__group">
-      <input class="form__input" id="text" type="search" placeholder="Choose text to display" />
-      <input class="form__input" id="picture" type="search"
-        placeholder="Searchterm for background picture; leave blank if it's same as the text" />
+      <div id="text_con">
+        <input class="form__input" id="text" type="search" placeholder="Choose your cover text.. e.g. 'Summer'"
+          autofocus />
+        <label for="text" class="form__label">Hit <span class="keybtn">Enter ⏎</span> if you're done.</label>
+      </div>
+      <div id="picture_con">
+        <input class="form__input" id="picture" type="search"
+          placeholder="Type in a searchterm for your background image.. e.g. 'Party'" />
+        <label for="picture" class="form__label">Hit <span class="keybtn">Enter ⏎</span> if you're done.</label>
+      </div>
       <div class="form__input" id="btnSave"></div>
     </div>
 
@@ -33,17 +41,18 @@
     <a id="download">
       <div id="widget_con">
         <div id="img-out"></div>
-       
+        <label for="widget_con" class="form__label" style="text-align: center;width: 100%;margin-left: 0;"><span
+            class="keybtn">Click</span> to download or hit <span class="keybtn">Enter ⏎</span> to reshuffle.</label>
       </div>
 
 
     </a>
     <div id="widget_con2">
-    <div class="bg" id="widget">
-      <div class="cover"></div>
-      <span id="month"></span>
+      <div class="bg" id="widget">
+        <div class="cover"></div>
+        <span id="month"></span>
+      </div>
     </div>
-  </div>
   </div>
 
   <script src="js/script.js"></script>

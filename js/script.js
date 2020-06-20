@@ -1,7 +1,27 @@
 $(function () {
-    $('#picture').hide();
+    $('#picture_con').hide();
     $('#btnSave').hide();
     $('#widget_con').hide();
+
+    const animateCSS = (element, animation, prefix = 'animate__') =>
+        // We create a Promise and return it
+        new Promise((resolve, reject) => {
+            const animationName = `${prefix}${animation}`;
+            const node = document.querySelector(element);
+
+            node.classList.add(`${prefix}animated`, animationName);
+
+            // When the animation ends, we clean the classes and resolve the Promise
+            function handleAnimationEnd() {
+                node.classList.remove(`${prefix}animated`, animationName);
+                node.removeEventListener('animationend', handleAnimationEnd);
+
+                resolve('Animation ended');
+            }
+
+            node.addEventListener('animationend', handleAnimationEnd);
+        });
+
     var restart = false;
 
     $('#text').keypress(function (e) {
@@ -9,14 +29,12 @@ $(function () {
         if (key == 13) {
 
 
-            const element1 = document.querySelector('#text');
-            element1.classList.add('animate__animated', 'animate__fadeOutDown');
 
-            element1.addEventListener('animationend', () => {
-                $('#text').hide();
-                $('#picture').show();
-                $('#picture').addClass('animate__animated animate__fadeInDown');
-
+            animateCSS('#text_con', 'fadeOutDown').then((message) => {
+                $('#text_con').hide();
+                $('#picture_con').show();
+                $('#picture_con').focus();
+                animateCSS('#picture_con', 'fadeInDown');
             });
 
 
@@ -27,16 +45,11 @@ $(function () {
         var key = e.which;
         if (key == 13) {
 
-            const element2 = document.querySelector('#picture');
-            element2.classList.add('animate__animated', 'animate__fadeOutDown');
-
-            element2.addEventListener('animationend', () => {
-                $('#picture').hide();
+            animateCSS('#picture_con', 'fadeOutDown').then((message) => {
+                $('#picture_con').hide();
                 $('#btnSave').show();
-                $('#btnSave').addClass('animate__animated animate__fadeInDown');
-
+                animateCSS('#btnSave', 'fadeInDown');
             });
-
 
             $('#btnSave').click();
             return false;
@@ -94,48 +107,47 @@ $(function () {
                     a.download = text + '.jpg';
                 }
             });
-            const element = document.querySelector('#btnSave');
-            element.classList.add('animate__animated', 'animate__fadeOutDown');
 
-            element.addEventListener('animationend', () => {
+            animateCSS('#btnSave', 'fadeOutDown').then((message) => {
                 $('#btnSave').hide();
                 $('#widget_con').show();
-                $('#widget_con').addClass('animate__animated animate__fadeInDown');
-
+                animateCSS('#widget_con', 'fadeInDown');
             });
+
+
+
 
 
 
         }, 3500);
 
-/*                 setTimeout(() => {
-                    $('#picture').blur();
-                    restart = true;
+        setTimeout(() => {
+            $('#picture').blur();
+            restart = true;
 
-                    $(document).on('keypress',function(e) {
-                        if(e.which == 13 && restart == true) {
-                            restart = false;
-                            $('#widget_con').removeClass('animate__animated animate__fadeInDown');
-                            $('#btnSave').removeClass('animate__animated animate__fadeOutDown');
-                            const element3 = document.querySelector('#widget_con');
-                            element3.classList.add('animate__animated', 'animate__fadeOutDown');
-                
-                            element3.addEventListener('animationend', () => {
-                                $('#widget_con').hide();
-                                $('#btnSave').show();
-                                $('#btnSave').addClass('animate__animated animate__fadeInDown');
-                
-                            });
-                
+            $(document).on('keypress', function (e) {
+                if (e.which == 13 && restart == true) {
+                    restart = false;
 
-                
-                
-                            $('#btnSave').click();
-                            return false;
-                        }
+                    $('body').addClass('overflow');
+
+                    animateCSS('#widget_con', 'fadeOutDown').then((message) => {
+                        $('#widget_con').hide();
+                        $('#btnSave').show();
+                        animateCSS('#btnSave', 'fadeInDown');
+                        $('body').removeClass('overflow');
                     });
-                }, 3600); */
-        
+
+
+
+
+
+                    $('#btnSave').click();
+                    return false;
+                }
+            });
+        }, 3600);
+
 
     });
 });
