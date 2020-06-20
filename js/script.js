@@ -19,7 +19,7 @@ $(function () {
         });
 
     var restart = false;
-
+  
     $('#text').keypress(function (e) {
         var key = e.which;
         if (key == 13) {
@@ -37,6 +37,7 @@ $(function () {
 
         }
     });
+
     $('#picture').keypress(function (e) {
         var key = e.which;
         if (key == 13) {
@@ -60,6 +61,10 @@ $(function () {
             text = picture;
         }
 
+        picture = encodeURIComponent(picture.trim())
+
+        console.log(picture)
+
         $('#month').text(text);
         $('#btnSave').html('<div class="loader">Generating your awesome playlist cover<span class="loader__dot">.</span><span class="loader__dot">.</span><span class="loader__dot">.</span></div>');
 
@@ -82,8 +87,6 @@ $(function () {
                 img.src = src;
             }
         }
-
-
 
         toDataURL(
             '//source.unsplash.com/500x500/?' + picture,
