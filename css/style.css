@@ -109,7 +109,7 @@ a {
   text-decoration: none;
 }
 
-textarea:focus, input:focus{
+input:active, input:focus{
   outline: none;
 }
 
