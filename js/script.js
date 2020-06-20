@@ -1,8 +1,4 @@
 $(function () {
-    $('#picture_con').hide();
-    $('#btnSave').hide();
-    $('#widget_con').hide();
-
     const animateCSS = (element, animation, prefix = 'animate__') =>
         // We create a Promise and return it
         new Promise((resolve, reject) => {
