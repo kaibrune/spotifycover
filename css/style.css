@@ -134,7 +134,7 @@ a {
 }
 .bg span {
   z-index: 100;
-  font-weight: 500;
+  font-weight: 700;
   text-transform: lowercase;
 }
 @keyframes blink {
