@@ -136,7 +136,10 @@ input:active, input:focus{
 .bg span {
   z-index: 100;
   font-weight: 700;
-  text-transform: lowercase;
+  overflow: hidden;
+  text-align: center;
+  word-wrap: break-word;
+  padding: 5px;
 }
 @keyframes blink {
   50% {
